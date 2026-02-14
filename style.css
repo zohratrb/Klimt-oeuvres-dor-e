@@ -1,0 +1,808 @@
+/* 
+ * STYLE.CSS - Thème doré pour le site Klimt
+ * Projet d'ingénierie de formation - Zohra TRABELSI
+ * Version unifiée pour toutes les pages
+ */
+
+/* ===== RESET ET BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== POLICES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap');
+
+/* ===== VARIABLES ===== */
+:root {
+    --or-principal: #FFD700;
+    --or-satine: #D4AF37;
+    --or-vieux: #C5A028;
+    --or-rose: #E6B422;
+    --noir-profond: #1A1A1A;
+    --noir-doux: #2A2A2A;
+    --blanc-casse: #F5F5F5;
+    --beige: #F8F0E5;
+    --beige-dore: #E8DDB5;
+    --ombre-douce: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --ombre-doree: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+/* ===== STYLES GÉNÉRAUX ===== */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--noir-profond);
+    color: var(--blanc-casse);
+    line-height: 1.7;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    max-width: 1300px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, #1E1E1E, #252525);
+    border-radius: 30px;
+    box-shadow: var(--ombre-douce);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet motif byzantin en fond */
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, 
+            rgba(255, 215, 0, 0.02) 0px, 
+            rgba(255, 215, 0, 0.02) 2px,
+            transparent 2px, 
+            transparent 8px);
+    pointer-events: none;
+}
+
+/* ===== TYPOGRAPHIE DORÉE AVEC ANIMATIONS ===== */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: var(--or-principal);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    animation: etincelle 4s infinite;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--or-principal), var(--or-satine), transparent);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--or-satine);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+h3 {
+    font-size: 2.2rem;
+    color: var(--or-principal);
+    margin: 2rem 0 1.5rem 0;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px dashed var(--or-satine);
+    position: relative;
+}
+
+h3::before {
+    content: '❖';
+    color: var(--or-principal);
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    opacity: 0.8;
+}
+
+h4 {
+    font-size: 1.5rem;
+    color: var(--or-rose);
+    margin: 1.5rem 0 1rem 0;
+    font-weight: 700;
+    border-left: 5px solid var(--or-principal);
+    padding-left: 1rem;
+}
+
+/* Animation scintillement */
+@keyframes etincelle {
+    0%, 100% { text-shadow: 0 0 5px var(--or-principal); }
+    50% { text-shadow: 0 0 20px var(--or-principal), 0 0 30px var(--or-satine); }
+}
+
+@keyframes rotation {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    background: linear-gradient(135deg, #0F0F0F, #1A1A1A);
+    padding: 1.2rem 2rem;
+    border-bottom: 3px solid var(--or-principal);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: var(--blanc-casse);
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--or-principal);
+    transition: width 0.3s ease;
+}
+
+nav a::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    color: var(--or-satine);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--or-principal);
+    transform: translateY(-2px);
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+nav a:hover::after {
+    opacity: 1;
+    right: -25px;
+}
+
+/* ===== EN-TÊTE DE PAGE AVEC ANIMATION 3D ===== */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(145deg, #202020, #181818);
+    border-radius: 30px;
+    border: 1px solid var(--or-satine);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    animation: rotation 20s linear infinite;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+    color: var(--beige);
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== STYLE DES ŒUVRES (PAGE 3) ===== */
+.oeuvre {
+    margin-bottom: 5rem;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, #252525, #1F1F1F);
+    border-radius: 25px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.oeuvre:hover {
+    border-color: var(--or-principal);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+    transform: translateY(-8px);
+}
+
+.oeuvre-conteneur {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+/* ===== IMAGES PROPORTIONNELLES ET CENTRÉES ===== */
+.oeuvre figure {
+    flex: 1.2;
+    margin: 0;
+    text-align: center;
+}
+
+.oeuvre img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+    border: 4px solid var(--or-satine);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.oeuvre img:hover {
+    transform: scale(1.05) rotate(0.5deg);
+    border-color: var(--or-principal);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+}
+
+.oeuvre figcaption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--beige-dore);
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+/* Image de la page biographie */
+.portrait-klimt {
+    text-align: center;
+}
+
+.portrait-klimt img {
+    max-width: 350px;
+    height: auto;
+    border-radius: 15px;
+    border: 4px solid var(--or-satine);
+    box-shadow: var(--ombre-doree);
+}
+
+/* ===== FICHE D'IDENTITÉ ===== */
+.fiche-oeuvre {
+    flex: 0.8;
+    background: linear-gradient(145deg, #1E1E1E, #151515);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--or-satine);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.fiche-oeuvre h4 {
+    color: var(--or-principal);
+    border-left: 5px solid var(--or-satine);
+    margin-top: 0;
+}
+
+.fiche-oeuvre ul {
+    list-style: none;
+    padding: 0;
+}
+
+.fiche-oeuvre li {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.fiche-oeuvre li:last-child {
+    border-bottom: none;
+}
+
+.fiche-oeuvre li strong {
+    color: var(--or-satine);
+    display: inline-block;
+    min-width: 120px;
+    font-weight: 700;
+}
+
+/* ===== ANALYSE DES ŒUVRES ===== */
+.analyse {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border-left: 5px solid var(--or-principal);
+    position: relative;
+}
+
+.analyse::before {
+    content: '✧';
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--or-principal);
+    opacity: 0.2;
+}
+
+.analyse p {
+    margin-bottom: 1rem;
+}
+
+/* ===== STYLE POUR LA PAGE BIOGRAPHIE ===== */
+.biographie-conteneur {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.biographie-texte {
+    flex: 1;
+}
+
+/* Chronologie */
+.chronologie-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.chronologie-carte {
+    background: linear-gradient(145deg, #252525, #1F1F1F);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--or-satine);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.chronologie-carte:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ombre-doree);
+    border-color: var(--or-principal);
+}
+
+.chronologie-carte h4 {
+    color: var(--or-principal);
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Périodes artistiques */
+.periodes-conteneur {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.periode-carte {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.periode-carte:hover {
+    border-color: var(--or-principal);
+    transform: scale(1.02);
+}
+
+/* ===== STYLE POUR LA PAGE TECHNIQUES ===== */
+.technique-conteneur {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.technique-conteneur.reverse {
+    flex-direction: row-reverse;
+}
+
+.technique-image {
+    flex: 1;
+    text-align: center;
+}
+
+.technique-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 4px solid var(--or-satine);
+}
+
+/* Grille symbolique */
+.symbolique-grille {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.symbole-carte {
+    background: linear-gradient(145deg, #252525, #1F1F1F);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--or-satine);
+    transition: all 0.3s ease;
+}
+
+.symbole-carte:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ombre-doree);
+}
+
+.symbole-carte h4 {
+    color: var(--or-principal);
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+/* ===== TABLEAUX AVEC CONTOURS ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--or-satine);
+}
+
+thead {
+    background: linear-gradient(135deg, var(--or-satine), var(--or-vieux));
+    color: var(--noir-profond);
+}
+
+th {
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--or-principal);
+}
+
+td {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--blanc-casse);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+tr:hover td {
+    background: rgba(212, 175, 55, 0.15);
+}
+
+td:first-child {
+    font-weight: 700;
+    color: var(--or-principal);
+}
+
+/* ===== LISTES AVEC PUCES DORÉES ===== */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+ul li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+ul li::before {
+    content: '✦';
+    color: var(--or-principal);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ===== CITATIONS ===== */
+blockquote {
+    margin: 2rem 0;
+    padding: 2rem 3rem;
+    background: linear-gradient(145deg, #202020, #181818);
+    border-radius: 20px;
+    border: 1px solid var(--or-satine);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--beige);
+    box-shadow: var(--ombre-doree);
+    position: relative;
+}
+
+blockquote::before {
+    content: '"';
+    font-size: 6rem;
+    color: var(--or-principal);
+    opacity: 0.2;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+blockquote footer {
+    background: transparent;
+    border-top: none;
+    padding: 0;
+    margin-top: 1rem;
+    text-align: right;
+    color: var(--or-satine);
+}
+
+/* ===== SÉPARATEURS ===== */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--or-principal), 
+        var(--or-satine), 
+        var(--or-principal), 
+        transparent);
+    position: relative;
+}
+
+hr::before {
+    content: '❖ ❖ ❖';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--noir-doux);
+    padding: 0.5rem 1.5rem;
+    color: var(--or-principal);
+    font-size: 1rem;
+    letter-spacing: 5px;
+}
+
+/* ===== NAVIGATION INTERNE ===== */
+.navigation {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.navigation p {
+    color: var(--or-satine);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li::before {
+    display: none;
+}
+
+.navigation a {
+    color: var(--blanc-casse);
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--or-satine);
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.navigation a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.navigation a:hover {
+    background: var(--or-satine);
+    color: var(--noir-profond);
+    border-color: var(--or-principal);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.navigation a:hover::before {
+    left: 100%;
+}
+
+/* ===== PIED DE PAGE ===== */
+footer {
+    background: linear-gradient(135deg, #0F0F0F, #151515);
+    color: var(--beige);
+    text-align: center;
+    padding: 2.5rem;
+    margin-top: auto;
+    border-top: 3px solid var(--or-satine);
+    position: relative;
+}
+
+footer::before {
+    content: '✦ ✦ ✦';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--noir-profond);
+    color: var(--or-principal);
+    padding: 0 2rem;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+footer p:first-child {
+    color: var(--or-satine);
+    font-weight: 700;
+}
+
+/* ===== RESSOURCES ===== */
+.ressources-conteneur {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.ressource {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.ressource h4 {
+    color: var(--or-satine);
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 992px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 2rem; }
+    
+    .oeuvre-conteneur,
+    .biographie-conteneur,
+    .technique-conteneur,
+    .technique-conteneur.reverse {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    nav ul { gap: 2rem; }
+    .symbolique-grille { grid-template-columns: 1fr; }
+    .ressources-conteneur { grid-template-columns: 1fr; }
+}
+
+@media screen and (max-width: 768px) {
+    main { margin: 1rem; padding: 1.5rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.8rem; }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    nav a::after { display: none; }
+    
+    .oeuvre { padding: 1.5rem; }
+    .fiche-oeuvre li strong { display: block; margin-bottom: 0.3rem; }
+    
+    .navigation ul { flex-direction: column; gap: 1rem; }
+    .navigation a { width: 100%; }
+    
+    blockquote { padding: 1.5rem; font-size: 1rem; }
+    blockquote::before { font-size: 4rem; }
+}
+
+@media screen and (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.3rem; }
+    h3 { font-size: 1.5rem; }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* ===== ACCESSIBILITÉ ===== */
+:focus {
+    outline: 3px solid var(--or-principal);
+    outline-offset: 3px;
+}
+
+::selection {
+    background-color: var(--or-principal);
+    color: var(--noir-profond);
+}
