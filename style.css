@@ -5,6 +5,8 @@
  */
 
 /* ===== RESET ET BASE ===== */
+/* Réinitialise les marges et paddings par défaut des navigateurs */
+/* Box-sizing: border-box inclut les bordures dans le calcul des largeurs */
 * {
     margin: 0;
     padding: 0;
@@ -12,50 +14,54 @@
 }
 
 /* ===== POLICES ===== */
+/* Import des polices Google Fonts : Playfair Display pour les titres, Lato pour le texte courant */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap');
 
 /* ===== VARIABLES ===== */
+/* Définition des couleurs et ombres réutilisables dans tout le site */
 :root {
-    --or-principal: #FFD700;
-    --or-satine: #D4AF37;
-    --or-vieux: #C5A028;
-    --or-rose: #E6B422;
-    --noir-profond: #1A1A1A;
-    --noir-doux: #2A2A2A;
-    --blanc-casse: #F5F5F5;
-    --beige: #F8F0E5;
-    --beige-dore: #E8DDB5;
-    --ombre-douce: 0 10px 30px rgba(0, 0, 0, 0.5);
-    --ombre-doree: 0 10px 30px rgba(255, 215, 0, 0.2);
+    --or-principal: #FFD700;      /* Doré vif pour les titres principaux */
+    --or-satine: #D4AF37;         /* Doré plus doux pour les éléments secondaires */
+    --or-vieux: #C5A028;          /* Doré foncé pour les accents */
+    --or-rose: #E6B422;           /* Doré aux reflets rosés */
+    --noir-profond: #1A1A1A;      /* Fond principal sombre */
+    --noir-doux: #2A2A2A;         /* Fond légèrement plus clair */
+    --blanc-casse: #F5F5F5;       /* Texte principal */
+    --beige: #F8F0E5;             /* Beige pour les citations */
+    --beige-dore: #E8DDB5;        /* Beige doré pour les légendes */
+    --ombre-douce: 0 10px 30px rgba(0, 0, 0, 0.5);        /* Ombre standard */
+    --ombre-doree: 0 10px 30px rgba(255, 215, 0, 0.2);    /* Ombre dorée pour les effets */
 }
 
 /* ===== STYLES GÉNÉRAUX ===== */
+/* Style de base appliqué à tout le site */
 body {
-    font-family: 'Lato', sans-serif;
-    background-color: var(--noir-profond);
-    color: var(--blanc-casse);
-    line-height: 1.7;
+    font-family: 'Lato', sans-serif;           /* Police principale */
+    background-color: var(--noir-profond);      /* Fond sombre */
+    color: var(--blanc-casse);                  /* Texte clair */
+    line-height: 1.7;                           /* Hauteur de ligne pour lisibilité */
     background-image: 
         radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 30%),
         radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
-    min-height: 100vh;
+    min-height: 100vh;                           /* Hauteur minimale = écran */
     display: flex;
-    flex-direction: column;
+    flex-direction: column;                      /* Organisation verticale */
 }
 
+/* Conteneur principal du contenu de chaque page */
 main {
-    max-width: 1300px;
-    margin: 3rem auto;
-    padding: 2.5rem;
-    background: linear-gradient(145deg, #1E1E1E, #252525);
-    border-radius: 30px;
-    box-shadow: var(--ombre-douce);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    max-width: 1300px;                           /* Largeur maximale */
+    margin: 3rem auto;                            /* Centrage horizontal */
+    padding: 2.5rem;                              /* Espacement interne */
+    background: linear-gradient(145deg, #1E1E1E, #252525); /* Dégradé subtil */
+    border-radius: 30px;                          /* Coins arrondis */
+    box-shadow: var(--ombre-douce);                /* Ombre portée */
+    border: 1px solid rgba(212, 175, 55, 0.2);     /* Bordure dorée discrète */
     position: relative;
-    overflow: hidden;
+    overflow: hidden;                              /* Cache le débordement du motif */
 }
 
-/* Effet motif byzantin en fond */
+/* Effet de motif byzantin en arrière-plan */
 main::before {
     content: '';
     position: absolute;
@@ -69,27 +75,30 @@ main::before {
             rgba(255, 215, 0, 0.02) 2px,
             transparent 2px, 
             transparent 8px);
-    pointer-events: none;
+    pointer-events: none;                          /* Permet de cliquer à travers */
 }
 
 /* ===== TYPOGRAPHIE DORÉE AVEC ANIMATIONS ===== */
+/* Styles communs à tous les titres */
 h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;       /* Police élégante pour titres */
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.5px;                         /* Espacement léger entre lettres */
 }
 
+/* Titre principal de niveau 1 */
 h1 {
     font-size: 3.2rem;
     font-weight: 900;
     color: var(--or-principal);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);   /* Ombre pour relief */
     margin-bottom: 1rem;
     position: relative;
-    display: inline-block;
-    animation: etincelle 4s infinite;
+    display: inline-block;                          /* Ajuste à la largeur du contenu */
+    animation: etincelle 4s infinite;               /* Animation scintillement */
 }
 
+/* Ligne décorative sous le h1 */
 h1::after {
     content: '';
     position: absolute;
@@ -100,72 +109,80 @@ h1::after {
     background: linear-gradient(90deg, transparent, var(--or-principal), var(--or-satine), transparent);
 }
 
+/* Titre de niveau 2 (sous-titres) */
 h2 {
     font-size: 2rem;
     color: var(--or-satine);
     margin-bottom: 2rem;
     font-weight: 400;
-    font-style: italic;
+    font-style: italic;                              /* Italique pour distinction */
 }
 
+/* Titre de niveau 3 (sections) */
 h3 {
     font-size: 2.2rem;
     color: var(--or-principal);
     margin: 2rem 0 1.5rem 0;
     padding-bottom: 0.8rem;
-    border-bottom: 2px dashed var(--or-satine);
+    border-bottom: 2px dashed var(--or-satine);      /* Ligne pointillée dorée */
     position: relative;
 }
 
+/* Icône décorative avant le h3 */
 h3::before {
-    content: '❖';
+    content: '❖';                                    /* Symbole byzantin */
     color: var(--or-principal);
     font-size: 1.8rem;
     margin-right: 1rem;
     opacity: 0.8;
 }
 
+/* Titre de niveau 4 (sous-sections) */
 h4 {
     font-size: 1.5rem;
     color: var(--or-rose);
     margin: 1.5rem 0 1rem 0;
     font-weight: 700;
-    border-left: 5px solid var(--or-principal);
+    border-left: 5px solid var(--or-principal);      /* Barre latérale dorée */
     padding-left: 1rem;
 }
 
-/* Animation scintillement */
+/* Animation de scintillement pour le titre principal */
 @keyframes etincelle {
     0%, 100% { text-shadow: 0 0 5px var(--or-principal); }
     50% { text-shadow: 0 0 20px var(--or-principal), 0 0 30px var(--or-satine); }
 }
 
+/* Animation de rotation pour les arrière-plans */
 @keyframes rotation {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
 /* ===== NAVIGATION ===== */
+/* Barre de navigation principale */
 nav {
     background: linear-gradient(135deg, #0F0F0F, #1A1A1A);
     padding: 1.2rem 2rem;
-    border-bottom: 3px solid var(--or-principal);
+    border-bottom: 3px solid var(--or-principal);    /* Séparateur doré */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    position: sticky;
+    position: sticky;                                 /* Reste en haut lors du défilement */
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
+    z-index: 1000;                                    /* Au-dessus du contenu */
+    backdrop-filter: blur(5px);                       /* Effet de flou */
 }
 
+/* Liste des liens de navigation */
 nav ul {
     list-style: none;
-    display: flex;
+    display: flex;                                    /* Disposition horizontale */
     justify-content: center;
-    gap: 4rem;
+    gap: 4rem;                                         /* Espace entre les liens */
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Liens de navigation */
 nav a {
     color: var(--blanc-casse);
     text-decoration: none;
@@ -173,12 +190,13 @@ nav a {
     font-size: 1.2rem;
     font-weight: 700;
     padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;                        /* Animation au survol */
     position: relative;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
+/* Ligne décorative sous les liens (apparaît au survol) */
 nav a::before {
     content: '';
     position: absolute;
@@ -190,6 +208,7 @@ nav a::before {
     transition: width 0.3s ease;
 }
 
+/* Étoile décorative après les liens (apparaît au survol) */
 nav a::after {
     content: '✦';
     position: absolute;
@@ -198,9 +217,10 @@ nav a::after {
     transform: translateY(-50%);
     color: var(--or-satine);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, right 0.3s ease;
 }
 
+/* Effets au survol des liens */
 nav a:hover {
     color: var(--or-principal);
     transform: translateY(-2px);
@@ -216,6 +236,7 @@ nav a:hover::after {
 }
 
 /* ===== EN-TÊTE DE PAGE AVEC ANIMATION 3D ===== */
+/* En-tête présent en haut de chaque page */
 header {
     text-align: center;
     margin-bottom: 3rem;
@@ -227,6 +248,7 @@ header {
     overflow: hidden;
 }
 
+/* Effet de lumière rotative en arrière-plan */
 header::after {
     content: '';
     position: absolute;
@@ -238,16 +260,18 @@ header::after {
     animation: rotation 20s linear infinite;
 }
 
+/* Paragraphe dans l'en-tête */
 header p {
     font-size: 1.2rem;
     max-width: 800px;
     margin: 1.5rem auto 0;
     color: var(--beige);
     position: relative;
-    z-index: 2;
+    z-index: 2;                                        /* Au-dessus de l'animation */
 }
 
 /* ===== STYLE DES ŒUVRES (PAGE 3) ===== */
+/* Conteneur de chaque œuvre */
 .oeuvre {
     margin-bottom: 5rem;
     padding: 2.5rem;
@@ -256,15 +280,17 @@ header p {
     border: 1px solid rgba(212, 175, 55, 0.3);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
     position: relative;
-    transition: all 0.4s ease;
+    transition: all 0.4s ease;                          /* Animation au survol */
 }
 
+/* Effet au survol d'une œuvre */
 .oeuvre:hover {
     border-color: var(--or-principal);
     box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
-    transform: translateY(-8px);
+    transform: translateY(-8px);                         /* Légère élévation */
 }
 
+/* Conteneur flexible pour l'image et la fiche d'identité */
 .oeuvre-conteneur {
     display: flex;
     gap: 3rem;
@@ -273,30 +299,34 @@ header p {
 }
 
 /* ===== IMAGES PROPORTIONNELLES ET CENTRÉES ===== */
+/* Conteneur de l'image dans la section œuvre */
 .oeuvre figure {
     flex: 1.2;
     margin: 0;
     text-align: center;
 }
 
+/* Style des images */
 .oeuvre img {
     width: 100%;
-    max-width: 500px;
-    height: auto;
+    max-width: 500px;                                    /* Taille maximale */
+    height: auto;                                        /* Proportions conservées */
     border-radius: 15px;
-    border: 4px solid var(--or-satine);
+    border: 4px solid var(--or-satine);                  /* Bordure dorée */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     transition: all 0.4s ease;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto;                                      /* Centrage */
 }
 
+/* Effet au survol des images */
 .oeuvre img:hover {
-    transform: scale(1.05) rotate(0.5deg);
+    transform: scale(1.05) rotate(0.5deg);               /* Léger zoom et rotation */
     border-color: var(--or-principal);
     box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
 }
 
+/* Légende sous l'image */
 .oeuvre figcaption {
     margin-top: 1rem;
     font-style: italic;
@@ -321,36 +351,42 @@ header p {
 }
 
 /* ===== FICHE D'IDENTITÉ ===== */
+/* Carte contenant les informations sur l'œuvre */
 .fiche-oeuvre {
     flex: 0.8;
     background: linear-gradient(145deg, #1E1E1E, #151515);
     padding: 2rem;
     border-radius: 20px;
     border: 1px solid var(--or-satine);
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);     /* Ombre interne */
 }
 
+/* Titre de la fiche d'identité */
 .fiche-oeuvre h4 {
     color: var(--or-principal);
     border-left: 5px solid var(--or-satine);
     margin-top: 0;
 }
 
+/* Liste dans la fiche d'identité */
 .fiche-oeuvre ul {
     list-style: none;
     padding: 0;
 }
 
+/* Éléments de la liste */
 .fiche-oeuvre li {
     margin-bottom: 1rem;
     padding: 0.8rem;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);     /* Séparateur doré */
 }
 
+/* Dernier élément sans bordure */
 .fiche-oeuvre li:last-child {
     border-bottom: none;
 }
 
+/* Mise en valeur des étiquettes (Artiste, Date, etc.) */
 .fiche-oeuvre li strong {
     color: var(--or-satine);
     display: inline-block;
@@ -359,15 +395,17 @@ header p {
 }
 
 /* ===== ANALYSE DES ŒUVRES ===== */
+/* Bloc d'analyse textuelle */
 .analyse {
     margin-top: 2rem;
     padding: 2rem;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    border-left: 5px solid var(--or-principal);
+    border-left: 5px solid var(--or-principal);           /* Barre latérale dorée */
     position: relative;
 }
 
+/* Étoile décorative dans le coin */
 .analyse::before {
     content: '✧';
     position: absolute;
@@ -378,11 +416,13 @@ header p {
     opacity: 0.2;
 }
 
+/* Paragraphes dans l'analyse */
 .analyse p {
     margin-bottom: 1rem;
 }
 
 /* ===== STYLE POUR LA PAGE BIOGRAPHIE ===== */
+/* Conteneur principal de la biographie (portrait + texte) */
 .biographie-conteneur {
     display: flex;
     gap: 3rem;
@@ -390,18 +430,20 @@ header p {
     margin: 2rem 0;
 }
 
+/* Texte biographique */
 .biographie-texte {
     flex: 1;
 }
 
-/* Chronologie */
+/* Chronologie - grille de cartes */
 .chronologie-grille {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adaptatif */
     gap: 1.5rem;
     margin: 2rem 0;
 }
 
+/* Carte de la chronologie */
 .chronologie-carte {
     background: linear-gradient(145deg, #252525, #1F1F1F);
     padding: 1.5rem;
@@ -411,12 +453,14 @@ header p {
     transition: all 0.3s ease;
 }
 
+/* Effet au survol des cartes */
 .chronologie-carte:hover {
     transform: translateY(-5px);
     box-shadow: var(--ombre-doree);
     border-color: var(--or-principal);
 }
 
+/* Année dans la carte chronologique */
 .chronologie-carte h4 {
     color: var(--or-principal);
     font-size: 1.8rem;
@@ -425,7 +469,7 @@ header p {
     padding-left: 0;
 }
 
-/* Périodes artistiques */
+/* Périodes artistiques - grille de cartes */
 .periodes-conteneur {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -433,6 +477,7 @@ header p {
     margin: 2rem 0;
 }
 
+/* Carte de période */
 .periode-carte {
     background: rgba(0, 0, 0, 0.3);
     padding: 2rem;
@@ -441,12 +486,14 @@ header p {
     transition: all 0.3s ease;
 }
 
+/* Effet au survol des cartes de période */
 .periode-carte:hover {
     border-color: var(--or-principal);
     transform: scale(1.02);
 }
 
 /* ===== STYLE POUR LA PAGE TECHNIQUES ===== */
+/* Conteneur flexible pour les sections techniques */
 .technique-conteneur {
     display: flex;
     gap: 3rem;
@@ -454,10 +501,12 @@ header p {
     margin: 2rem 0;
 }
 
+/* Version inversée (image à droite, texte à gauche) */
 .technique-conteneur.reverse {
     flex-direction: row-reverse;
 }
 
+/* Image dans la section technique */
 .technique-image {
     flex: 1;
     text-align: center;
@@ -470,7 +519,7 @@ header p {
     border: 4px solid var(--or-satine);
 }
 
-/* Grille symbolique */
+/* Grille symbolique (2 colonnes) */
 .symbolique-grille {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -478,6 +527,7 @@ header p {
     margin: 2rem 0;
 }
 
+/* Carte symbolique */
 .symbole-carte {
     background: linear-gradient(145deg, #252525, #1F1F1F);
     padding: 2rem;
@@ -486,11 +536,13 @@ header p {
     transition: all 0.3s ease;
 }
 
+/* Effet au survol des cartes symboliques */
 .symbole-carte:hover {
     transform: translateY(-5px);
     box-shadow: var(--ombre-doree);
 }
 
+/* Titre dans la carte symbolique */
 .symbole-carte h4 {
     color: var(--or-principal);
     border-left: none;
@@ -499,22 +551,25 @@ header p {
 }
 
 /* ===== TABLEAUX AVEC CONTOURS ===== */
+/* Style général des tableaux */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse;                           /* Bordures fusionnées */
     margin: 2rem 0;
     font-size: 1rem;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--or-satine);
+    border: 2px solid var(--or-satine);                  /* Bordure extérieure dorée */
 }
 
+/* En-tête du tableau */
 thead {
     background: linear-gradient(135deg, var(--or-satine), var(--or-vieux));
     color: var(--noir-profond);
 }
 
+/* Cellules d'en-tête */
 th {
     padding: 1.2rem;
     font-size: 1.1rem;
@@ -524,6 +579,7 @@ th {
     border: 1px solid var(--or-principal);
 }
 
+/* Cellules de données */
 td {
     padding: 1rem;
     background: rgba(0, 0, 0, 0.3);
@@ -531,31 +587,37 @@ td {
     border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
+/* Surbrillance au survol des lignes */
 tr:hover td {
     background: rgba(212, 175, 55, 0.15);
 }
 
+/* Première colonne mise en valeur */
 td:first-child {
     font-weight: 700;
     color: var(--or-principal);
 }
 
 /* ===== LISTES AVEC PUCES DORÉES ===== */
+/* Style général des listes */
 ul, ol {
     margin: 1rem 0 1rem 1.5rem;
 }
 
+/* Éléments de liste */
 li {
     margin-bottom: 0.5rem;
     line-height: 1.6;
 }
 
+/* Puces personnalisées pour les listes non ordonnées */
 ul li {
-    list-style-type: none;
+    list-style-type: none;                               /* Supprime la puce par défaut */
     position: relative;
     padding-left: 1.5rem;
 }
 
+/* Étoile dorée comme puce */
 ul li::before {
     content: '✦';
     color: var(--or-principal);
@@ -565,6 +627,7 @@ ul li::before {
 }
 
 /* ===== CITATIONS ===== */
+/* Style des citations en bloc */
 blockquote {
     margin: 2rem 0;
     padding: 2rem 3rem;
@@ -578,6 +641,7 @@ blockquote {
     position: relative;
 }
 
+/* Gros guillemet décoratif en arrière-plan */
 blockquote::before {
     content: '"';
     font-size: 6rem;
@@ -589,6 +653,7 @@ blockquote::before {
     font-family: 'Playfair Display', serif;
 }
 
+/* Auteur de la citation */
 blockquote footer {
     background: transparent;
     border-top: none;
@@ -599,6 +664,7 @@ blockquote footer {
 }
 
 /* ===== SÉPARATEURS ===== */
+/* Ligne de séparation entre les sections */
 hr {
     margin: 3rem 0;
     border: none;
@@ -612,6 +678,7 @@ hr {
     position: relative;
 }
 
+/* Motif décoratif au centre du séparateur */
 hr::before {
     content: '❖ ❖ ❖';
     position: absolute;
@@ -626,6 +693,7 @@ hr::before {
 }
 
 /* ===== NAVIGATION INTERNE ===== */
+/* Section de navigation en bas des pages */
 .navigation {
     margin-top: 3rem;
     padding: 2rem;
@@ -634,6 +702,7 @@ hr::before {
     text-align: center;
 }
 
+/* Texte d'introduction à la navigation */
 .navigation p {
     color: var(--or-satine);
     font-size: 1.2rem;
@@ -641,6 +710,7 @@ hr::before {
     font-family: 'Playfair Display', serif;
 }
 
+/* Liste des liens de navigation */
 .navigation ul {
     list-style: none;
     display: flex;
@@ -650,10 +720,12 @@ hr::before {
     padding: 0;
 }
 
+/* Désactive les puces personnalisées pour cette liste */
 .navigation ul li::before {
     display: none;
 }
 
+/* Liens de navigation */
 .navigation a {
     color: var(--blanc-casse);
     font-weight: 700;
@@ -667,6 +739,7 @@ hr::before {
     overflow: hidden;
 }
 
+/* Effet de brillance au survol */
 .navigation a::before {
     content: '';
     position: absolute;
@@ -678,6 +751,7 @@ hr::before {
     transition: left 0.5s ease;
 }
 
+/* Effets au survol des liens */
 .navigation a:hover {
     background: var(--or-satine);
     color: var(--noir-profond);
@@ -691,16 +765,18 @@ hr::before {
 }
 
 /* ===== PIED DE PAGE ===== */
+/* Pied de page commun à toutes les pages */
 footer {
     background: linear-gradient(135deg, #0F0F0F, #151515);
     color: var(--beige);
     text-align: center;
     padding: 2.5rem;
-    margin-top: auto;
-    border-top: 3px solid var(--or-satine);
+    margin-top: auto;                                    /* Pousse vers le bas */
+    border-top: 3px solid var(--or-satine);              /* Ligne de séparation dorée */
     position: relative;
 }
 
+/* Motif décoratif au-dessus du footer */
 footer::before {
     content: '✦ ✦ ✦';
     position: absolute;
@@ -714,19 +790,22 @@ footer::before {
     letter-spacing: 3px;
 }
 
+/* Première ligne du footer (projet) */
 footer p:first-child {
     color: var(--or-satine);
     font-weight: 700;
 }
 
 /* ===== RESSOURCES ===== */
+/* Grille des ressources (livres, documentaires, musées) */
 .ressources-conteneur {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);               /* 3 colonnes égales */
     gap: 2rem;
     margin: 2rem 0;
 }
 
+/* Carte de ressource */
 .ressource {
     background: rgba(0, 0, 0, 0.3);
     padding: 1.5rem;
@@ -734,6 +813,7 @@ footer p:first-child {
     border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
+/* Titre de la ressource */
 .ressource h4 {
     color: var(--or-satine);
     text-align: center;
@@ -742,11 +822,13 @@ footer p:first-child {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+/* Adaptation pour les tablettes et petits écrans (moins de 992px) */
 @media screen and (max-width: 992px) {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 1.8rem; }
     h3 { font-size: 2rem; }
     
+    /* Passage en colonne pour les conteneurs flex */
     .oeuvre-conteneur,
     .biographie-conteneur,
     .technique-conteneur,
@@ -756,27 +838,30 @@ footer p:first-child {
     }
     
     nav ul { gap: 2rem; }
-    .symbolique-grille { grid-template-columns: 1fr; }
-    .ressources-conteneur { grid-template-columns: 1fr; }
+    .symbolique-grille { grid-template-columns: 1fr; }    /* 1 colonne */
+    .ressources-conteneur { grid-template-columns: 1fr; } /* 1 colonne */
 }
 
+/* Adaptation pour les mobiles (moins de 768px) */
 @media screen and (max-width: 768px) {
     main { margin: 1rem; padding: 1.5rem; }
     h1 { font-size: 2rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.8rem; }
     
+    /* Navigation verticale */
     nav ul {
         flex-direction: column;
         align-items: center;
         gap: 0.8rem;
     }
     
-    nav a::after { display: none; }
+    nav a::after { display: none; }                       /* Cache les étoiles */
     
     .oeuvre { padding: 1.5rem; }
     .fiche-oeuvre li strong { display: block; margin-bottom: 0.3rem; }
     
+    /* Liens de navigation interne en colonne */
     .navigation ul { flex-direction: column; gap: 1rem; }
     .navigation a { width: 100%; }
     
@@ -784,11 +869,13 @@ footer p:first-child {
     blockquote::before { font-size: 4rem; }
 }
 
+/* Adaptation pour très petits écrans (moins de 480px) */
 @media screen and (max-width: 480px) {
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.3rem; }
     h3 { font-size: 1.5rem; }
     
+    /* Tableaux scrollables horizontalement */
     table {
         display: block;
         overflow-x: auto;
@@ -797,11 +884,13 @@ footer p:first-child {
 }
 
 /* ===== ACCESSIBILITÉ ===== */
+/* Style de focus pour la navigation au clavier */
 :focus {
     outline: 3px solid var(--or-principal);
     outline-offset: 3px;
 }
 
+/* Style de la sélection de texte */
 ::selection {
     background-color: var(--or-principal);
     color: var(--noir-profond);
