@@ -159,6 +159,33 @@ h4 {
     to { transform: rotate(360deg); }
 }
 
+/* ===== STYLES GÉNÉRAUX DES LIENS ===== */
+/* Styles de base pour tous les liens du site */
+a {
+    color: var(--or-satine);          /* Liens en doré satiné */
+    text-decoration: none;             /* Supprime le soulignement */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--or-principal);        /* Doré plus clair au survol */
+    text-decoration: underline;         /* Soulignement discret au survol */
+    text-decoration-color: var(--or-principal);
+}
+
+a:visited {
+    color: var(--or-vieux);             /* Doré plus foncé pour les liens visités */
+}
+
+a:active {
+    color: var(--or-rose);              /* Doré rosé au moment du clic */
+}
+
+a:focus {
+    outline: 3px solid var(--or-principal); /* Contour doré pour l'accessibilité */
+    outline-offset: 3px;
+}
+
 /* ===== NAVIGATION ===== */
 /* Barre de navigation principale */
 nav {
@@ -184,7 +211,7 @@ nav ul {
 
 /* Liens de navigation */
 nav a {
-    color: var(--blanc-casse);
+    color: var(--blanc-casse);                        /* Blanc pour la navigation */
     text-decoration: none;
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
@@ -233,6 +260,10 @@ nav a:hover::before {
 nav a:hover::after {
     opacity: 1;
     right: -25px;
+}
+
+nav a:visited {
+    color: var(--blanc-casse);                        /* Reste blanc après visite */
 }
 
 /* ===== EN-TÊTE DE PAGE AVEC ANIMATION 3D ===== */
@@ -725,7 +756,7 @@ hr::before {
     display: none;
 }
 
-/* Liens de navigation */
+/* Liens de navigation internes */
 .navigation a {
     color: var(--blanc-casse);
     font-weight: 700;
@@ -764,6 +795,23 @@ hr::before {
     left: 100%;
 }
 
+/* Liens visités */
+.navigation a:visited {
+    color: var(--blanc-casse);
+}
+
+/* Liens actifs */
+.navigation a:active {
+    color: var(--or-rose);
+    transform: translateY(-1px);
+}
+
+/* Focus pour accessibilité */
+.navigation a:focus {
+    outline: 3px solid var(--or-principal);
+    outline-offset: 3px;
+}
+
 /* ===== PIED DE PAGE ===== */
 /* Pied de page commun à toutes les pages */
 footer {
@@ -796,6 +844,19 @@ footer p:first-child {
     font-weight: 700;
 }
 
+/* Liens dans le footer */
+footer a {
+    color: var(--beige);
+}
+
+footer a:hover {
+    color: var(--or-principal);
+}
+
+footer a:visited {
+    color: var(--beige-dore);
+}
+
 /* ===== RESSOURCES ===== */
 /* Grille des ressources (livres, documentaires, musées) */
 .ressources-conteneur {
@@ -819,6 +880,19 @@ footer p:first-child {
     text-align: center;
     border-left: none;
     padding-left: 0;
+}
+
+/* Liens dans les ressources */
+.ressource a {
+    color: var(--beige-dore);
+}
+
+.ressource a:hover {
+    color: var(--or-principal);
+}
+
+.ressource a:visited {
+    color: var(--or-vieux);
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
