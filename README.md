@@ -22,6 +22,9 @@ INSPE Paris - Année universitaire 2025-2026
 
 ## Accès au site
 🌐 **[Voir le site en ligne](https://zohratrb.github.io/Klimt-oeuvres-dor-e/)**
+## Liens du projet
+- 📁 **Code source** : [https://github.com/zohratrb/Klimt-oeuvres-dor-e/)
+- 🌐 **Site en ligne** : [https://zohratrb.github.io/Klimt-oeuvres-dor-e/](https://zohratrb.github.io/Klimt-oeuvres-dor-e/)
 
 ## Auteur
 **Zohra TRABELSI** - Master 1 IFMN  
