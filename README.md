@@ -4,7 +4,7 @@
 Site web dédié à Gustav Klimt et à sa période dorée (1900-1910). Ce projet présente la biographie de l'artiste, trois de ses chefs-d'œuvre emblématiques, ainsi que les techniques et la symbolique de l'or dans ses peintures. Le design du site s'inspire des motifs byzantins et utilise une charte graphique dorée pour rendre hommage à l'esthétique unique de Klimt.
 
 ## Contexte
-Projet réalisé dans le cadre du Master 1 IFMN - Ingénierie de Formation et Médias Numériques  
+Projet réalisé dans le cadre du Master 1 IFMN - Ingénierie de Formation et Médias Numériques  -UE5
 INSPE Paris - Année universitaire 2025-2026
 
 ## Technologies utilisées
@@ -25,7 +25,7 @@ INSPE Paris - Année universitaire 2025-2026
 
 ## Auteur
 **Zohra TRABELSI** - Master 1 IFMN  
-Projet d'ingénierie de formation et médias numériques
+Projet d'ingénierie de formation et médias numériques-UE5
 
 ## Sources
 - Images : Wikimedia Commons (domaine public)
